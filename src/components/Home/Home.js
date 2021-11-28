@@ -5,6 +5,7 @@ import { Link, useRouteMatch } from 'react-router-dom';
 export default function Home() {
   const [movies, setMovies] = useState([]);
   const { url } = useRouteMatch();
+  let updateURL = url === '/' ? 'movie' : url;
 
   useEffect(() => {
     movieFetch.fetchApiTrending().then(data => setMovies(data.results));
@@ -17,7 +18,9 @@ export default function Home() {
         <ul>
           {movies.map(movie => (
             <li key={movie.id}>
-              <Link to={`${url}/${movie.id}`}>{`${movie.original_title}`}</Link>
+              <Link
+                to={`${updateURL}/${movie.id}`}
+              >{`${movie.original_title}`}</Link>
             </li>
           ))}
         </ul>

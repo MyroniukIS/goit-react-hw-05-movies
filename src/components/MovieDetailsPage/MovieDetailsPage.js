@@ -9,7 +9,9 @@ export default function MovieDetailsPage() {
   useEffect(() => {
     movieFetch.fetchApiOneMovie(movieId).then(setMovie);
   }, [movieId]);
+
   console.log(movie);
+
   return (
     <>
       <div>
