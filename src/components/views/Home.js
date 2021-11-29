@@ -1,12 +1,18 @@
-import { useEffect, useState } from "react";
-import ShowMoviesFromMovie from "../ShowMoviesFromMovie";
-import { fetchApiRating } from "../api";
+import { useEffect, useState } from 'react';
+import ShowMovies from '../ShowMovies/ShowMovies';
+import { fetchApiTrending } from '../api';
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
+
   useEffect(() => {
-    fetchApiRating().then((data) => setMovies(data.results));
+    fetchApiTrending().then(data => setMovies(data.results));
   }, []);
 
-  return <>{movies && <ShowMoviesFromMovie movies={movies} />}</>;
+  return (
+    <>
+      <h1>Trending Today</h1>
+      {movies && <ShowMovies movies={movies} />}
+    </>
+  );
 }

@@ -3,7 +3,7 @@ import s from './Navigation.module.scss';
 
 export default function Navigation() {
   return (
-    <nav className="headerNavigation">
+    <nav>
       <ul className={s.list}>
         <li className={s.item}>
           <NavLink

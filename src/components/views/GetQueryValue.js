@@ -1,8 +1,8 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export default function GetQueryValue({ onSubmit }) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
   function getQuery(e) {
     const lowerCase = e.currentTarget.value.toLowerCase();
@@ -11,8 +11,8 @@ export default function GetQueryValue({ onSubmit }) {
 
   function HandleSubmit(e) {
     e.preventDefault();
-    if (query.trim() === "") {
-      return alert("Введи что-то");
+    if (query.trim() === '') {
+      return alert('Введи что-то');
     }
 
     onSubmit(query);
@@ -20,7 +20,7 @@ export default function GetQueryValue({ onSubmit }) {
   }
 
   function clear() {
-    setQuery("");
+    setQuery('');
   }
 
   return (

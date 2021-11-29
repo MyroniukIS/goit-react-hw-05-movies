@@ -1,11 +1,13 @@
-import { Route, Switch } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
 import React, { lazy, Suspense } from 'react';
 import s from './App.module.scss';
 import Navigation from './components/Navigation';
 
 const Home = lazy(() => import('./components/views/Home'));
 const Movie = lazy(() => import('./components/views/Movie'));
-const MovieDetails = lazy(() => import('./components/views/MovieDetails'));
+const MovieDetailsPage = lazy(() =>
+  import('./components/views/MovieDetailsPage'),
+);
 
 function App() {
   return (
@@ -33,7 +35,7 @@ function App() {
               </Route>
 
               <Route path="/movie/:movieId">
-                <MovieDetails />
+                <MovieDetailsPage />
               </Route>
 
               <Route path="/">

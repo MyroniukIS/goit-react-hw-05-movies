@@ -1,7 +1,7 @@
 export {
   fetchApiSearch,
-  fetchApiRating,
-  fetchApiMore,
+  fetchApiTrending,
+  fetchApiDetails,
   fetchApiCast,
   fetchApiReviews,
-} from "./api";
+} from './api';

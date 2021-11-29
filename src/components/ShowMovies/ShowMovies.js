@@ -1,14 +1,13 @@
 import { Link, useRouteMatch } from 'react-router-dom';
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import s from './ShowMoviesFromMovie.module.scss';
+import s from '../ShowMovies/ShowMovies.module.scss';
 
-export default function ShowMoviesFromMovie({ movies }) {
-  const { url } = useRouteMatch();
+export default function ShowMovies({ movies }) {
   const location = useLocation();
-  let updateURL = url === '/' ? 'movie' : url;
+  const { url } = useRouteMatch();
 
-  console.log(movies);
+  let updateURL = url === '/' ? 'movie' : url;
 
   return (
     <ul className={s.list}>
@@ -29,8 +28,10 @@ export default function ShowMoviesFromMovie({ movies }) {
                 alt={movie.title}
               ></img>
             </div>
-            <p>{movie.title}</p>
-            <p>{movie.vote_average}</p>
+            <div className={s.thumbDescr}>
+              <p>{movie.title}</p>
+              <p>{movie.vote_average}</p>
+            </div>
           </Link>
         </li>
       ))}
@@ -38,6 +39,6 @@ export default function ShowMoviesFromMovie({ movies }) {
   );
 }
 
-ShowMoviesFromMovie.propTypes = {
+ShowMovies.propTypes = {
   movies: PropTypes.array,
 };

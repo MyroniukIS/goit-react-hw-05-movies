@@ -1,32 +1,34 @@
 import { useLocation, useParams, useHistory } from 'react-router';
 import { useEffect, useState } from 'react';
-import { fetchApiMore } from '../api/api';
+import { fetchApiDetails } from '../api/api';
 import MovieMoreInfo from '../MovieMoreInfo';
+import s from '../views/MovieDetailsPage.module.scss';
 
-export default function MovieDetails() {
+export default function MovieDetailsPage() {
   const history = useHistory();
   const location = useLocation();
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
 
-  function goBack() {
+  function Back() {
     history.push(location?.state?.from ?? '/');
   }
 
   useEffect(() => {
-    fetchApiMore(movieId).then(setMovie);
+    fetchApiDetails(movieId).then(setMovie);
   }, [movieId]);
 
   return (
     <>
       {movie && (
         <>
-          <button type="button" onClick={goBack}>
-            go back
+          <button className={s.btn} type="button" onClick={Back}>
+            BACK
           </button>
-          <div className="card-container">
-            <div className="{s.thumb}">
+          <div className={s.container}>
+            <div className={s.thumb}>
               <img
+                className={s.img}
                 src={
                   movie.poster_path &&
                   `https://image.tmdb.org/t/p/w500${movie.poster_path}`
@@ -35,7 +37,7 @@ export default function MovieDetails() {
                 width="450"
               ></img>
             </div>
-            <div>
+            <div className={s.thumbDescr}>
               <h2>{movie.title}</h2>
               <p>{movie.popularity}</p>
               <p>{movie.overview}</p>
@@ -43,7 +45,7 @@ export default function MovieDetails() {
           </div>
 
           <div>
-            <h3>Additional information</h3>
+            <h2>Additional information</h2>
             <MovieMoreInfo />
           </div>
         </>

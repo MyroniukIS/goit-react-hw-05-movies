@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.thumbDescr {
+  color: black;
+  padding: 15px;
+}
+.thumb {
+  display: flex;
+  justify-content: center;
+}
+.img {
+  max-width: 250px;
+}
+.btn {
+  background: linear-gradient(to top, #9cbdeb 0%, #4479a7 36%, #074b72 100%);
+  border-radius: 3px;
+  border: none;
+  width: 70px;
+  color: azure;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+.btn:hover {
+  cursor: pointer;
+  color: rgb(247, 54, 54);
+}
