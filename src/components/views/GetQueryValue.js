@@ -1,42 +1,41 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import s from '../views/GetQueryValue.module.scss';
 
 export default function GetQueryValue({ onSubmit }) {
   const [query, setQuery] = useState('');
 
   function getQuery(e) {
-    const lowerCase = e.currentTarget.value.toLowerCase();
-    setQuery(lowerCase);
+    setQuery(e.currentTarget.value.toLowerCase());
   }
 
   function HandleSubmit(e) {
     e.preventDefault();
     if (query.trim() === '') {
-      return alert('Введи что-то');
+      return alert('Enter your query!!!');
     }
 
     onSubmit(query);
-    clear();
-  }
-
-  function clear() {
     setQuery('');
   }
 
   return (
-    <form onSubmit={HandleSubmit}>
+    <form className={s.form} onSubmit={HandleSubmit}>
       <label>
-        <span>Search movie</span>
+        <p className={s.text}>SEARCH MOVIE</p>
         <input
+          className={s.input}
           type="text"
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos"
+          placeholder="Search"
           value={query}
           onChange={getQuery}
         ></input>
       </label>
-      <button type="submit">Send</button>
+      <button className={s.btn} type="submit">
+        FIND
+      </button>
     </form>
   );
 }

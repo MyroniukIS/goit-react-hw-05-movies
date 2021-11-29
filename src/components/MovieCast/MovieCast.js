@@ -7,7 +7,7 @@ export default function MovieCastDetails({ cast }) {
       {cast.map(item => {
         return (
           <li key={item.id} className={s.item}>
-            <div>
+            <div className={s.imgThumb}>
               <img
                 src={
                   item.profile_path &&
@@ -17,9 +17,8 @@ export default function MovieCastDetails({ cast }) {
                 width="130px"
               ></img>
             </div>
-            <div></div>
-            <h4>{item.original_name}</h4>
-            <p>Character: {item.character}</p>
+            <p className={s.text}>{item.original_name}</p>
+            <p className={s.textCharacter}>Character: {item.character}</p>
           </li>
         );
       })}

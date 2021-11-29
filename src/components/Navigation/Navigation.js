@@ -21,7 +21,7 @@ export default function Navigation() {
             className={s.link}
             activeClassName={s.linkActive}
           >
-            MOVIE
+            MOVIES
           </NavLink>
         </li>
       </ul>

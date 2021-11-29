@@ -9,6 +9,7 @@ export default function Home() {
     fetchApiTrending().then(data => setMovies(data.results));
   }, []);
 
+  console.log(movies);
   return (
     <>
       <h1>Trending Today</h1>

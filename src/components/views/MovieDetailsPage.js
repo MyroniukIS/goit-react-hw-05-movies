@@ -39,8 +39,19 @@ export default function MovieDetailsPage() {
             </div>
             <div className={s.thumbDescr}>
               <h2>{movie.title}</h2>
-              <p>{movie.popularity}</p>
-              <p>{movie.overview}</p>
+
+              <p>
+                <span className={s.text}>User score: </span>
+                {movie.vote_average}
+              </p>
+              <p>
+                <span className={s.text}>Overview: </span>
+                {movie.overview}
+              </p>
+              <p>
+                <span className={s.text}>Genres: </span>
+                {movie.genres.map(genre => genre.name + ' ')}
+              </p>
             </div>
           </div>
 

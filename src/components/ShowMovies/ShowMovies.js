@@ -14,6 +14,7 @@ export default function ShowMovies({ movies }) {
       {movies.map(movie => (
         <li key={movie.id} className={s.item}>
           <Link
+            className={s.link}
             to={{
               pathname: `${updateURL}/${movie.id}`,
               state: { from: location },
@@ -29,8 +30,8 @@ export default function ShowMovies({ movies }) {
               ></img>
             </div>
             <div className={s.thumbDescr}>
-              <p>{movie.title}</p>
-              <p>{movie.vote_average}</p>
+              <p className={s.textTitle}>{movie.title}</p>
+              <p className={s.textDescr}>{movie.vote_average}</p>
             </div>
           </Link>
         </li>

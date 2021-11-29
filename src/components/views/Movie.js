@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { fetchApiSearch } from '../api';
 import GetQueryValue from './GetQueryValue';
-import ShowMovies from '../ShowMovies';
+import ShowMovies from '../ShowMovies/ShowMovies';
+import s from '../views/Movie.module.scss';
 
 export default function Movie() {
   const [query, setQuery] = useState('');
@@ -13,16 +14,20 @@ export default function Movie() {
     }
   }, [query]);
 
-  function handleSubmit(q) {
-    setQuery(q);
+  function handleSubmit(inputQuery) {
+    setQuery(inputQuery);
   }
 
   return (
     <>
-      <h1>Movie</h1>
+      <h1>Movies</h1>
       <GetQueryValue onSubmit={handleSubmit} />
 
-      {movies && <ShowMovies movies={movies} />}
+      {movies ? (
+        <ShowMovies movies={movies} />
+      ) : (
+        <p className={s.textAlert}>Please, enter your query!!!</p>
+      )}
     </>
   );
 }

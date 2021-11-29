@@ -6,10 +6,25 @@
 }
 
 .item {
-  padding: 5px;
+  padding: 3px;
   list-style: none;
   margin-top: 10px;
   margin-left: 10px;
   outline: 1px solid black;
   flex-basis: calc((100% - 5 * 15px) / 5);
+}
+.text {
+  font-size: 18px;
+  font-weight: 500;
+}
+.textCharacter {
+  font-size: 14px;
+  font-weight: 500;
+}
+img {
+  display: block;
+}
+.imgThumb {
+  display: flex;
+  justify-content: center;
 }
