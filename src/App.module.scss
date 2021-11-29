@@ -1,0 +1,23 @@
+.header {
+  padding: 10px 10px;
+  margin: 10px;
+  background-color: rgba(62, 60, 68, 0.863);
+  border-radius: 7px;
+}
+
+.section {
+  padding: 15px;
+}
+.container {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 10px;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

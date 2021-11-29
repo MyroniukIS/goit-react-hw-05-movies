@@ -1,39 +1,50 @@
-import './App.css';
-import { Route, Switch } from 'react-router-dom';
-import Navigation from 'components/Navigation/Navigation';
-import Home from './components/Home/Home';
-import MovieDetailsPage from './components/MovieDetailsPage/MovieDetailsPage';
+import { Route, Switch } from 'react-router';
+import React, { lazy, Suspense } from 'react';
+import s from './App.module.scss';
+import Navigation from './components/Navigation';
 
-export default function App() {
+const Home = lazy(() => import('./components/views/Home'));
+const Movie = lazy(() => import('./components/views/Movie'));
+const MovieDetails = lazy(() => import('./components/views/MovieDetails'));
+
+function App() {
   return (
     <>
-      <Navigation />
-      <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/movies/:movieId">
-          <MovieDetailsPage />
-        </Route>
-      </Switch>
+      <div className={s.header}>
+        <Navigation />
+      </div>
 
-      {/* <Switch>
-        <Route path="/" exact>
-          <HomePage />
-        </Route>
-        <Route path="/movies" exact>
-          <MoviesPage />
-        </Route>
-        <Route path="/movies/:movieId">
-          <MovieDetailsPage />
-        </Route>
-        <Route path="/movies/:movieId/cast">
-          <Cast />
-        </Route>
-        <Route path="/movies/:movieId/reviews">
-          <Reviews />
-        </Route>
-      </Switch> */}
+      <div className={s.section}>
+        <div className={s.container}>
+          <Suspense
+            fallback={
+              <div className={s.loader}>
+                <div>Loading...</div>
+              </div>
+            }
+          >
+            <Switch>
+              <Route path="/" exact>
+                <Home />
+              </Route>
+
+              <Route path="/movie" exact>
+                <Movie />
+              </Route>
+
+              <Route path="/movie/:movieId">
+                <MovieDetails />
+              </Route>
+
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </Suspense>
+        </div>
+      </div>
     </>
   );
 }
+
+export default App;

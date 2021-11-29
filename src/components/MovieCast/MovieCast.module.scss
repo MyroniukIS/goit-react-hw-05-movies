@@ -1,0 +1,15 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+
+.item {
+  padding: 5px;
+  list-style: none;
+  margin-top: 10px;
+  margin-left: 10px;
+  outline: 1px solid black;
+  flex-basis: calc((100% - 5 * 15px) / 5);
+}
